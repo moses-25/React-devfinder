@@ -8,18 +8,30 @@ export default function Favorites() {
             <h3>Favorites</h3>
 
             {
-                favorites.length === 0 && ( <p> No favorites yet.</p>)
+                favorites.length === 0 ? (
+                    <div className='alert alert-info'>
+                        No favorites yet. Search for users and add them!
+                    </div>
+                ) : (
+                    <div className='list-group'>
+                        {
+                            favorites.map((user) => (
+                                <div key={user.id} className='list-group-item d-flex align-items-center gap-3'>
+                                    <img
+                                        src={user.avatar_url}
+                                        alt={user.login}
+                                        className='rounded-circle'
+                                        width='40'
+                                        height='40'
+                                        style={{ objectFit: 'cover' }}
+                                    />
+                                    <span className='fw-semibold'>{user.login}</span>
+                                </div>
+                            ))
+                        }
+                    </div>
+                )
             }
-
-            <ul className='list-group'>
-                {
-                    favorites.map((user, index) => (
-                        <li key={index} className='list-group-item'>
-                            {user.login}
-                        </li>
-                    ))
-                }
-            </ul>
         </div>
     );
 }
