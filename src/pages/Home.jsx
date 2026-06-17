@@ -34,15 +34,16 @@ export default function Home() {
         <div>
             <div className='mb-3'>
                 <input
-                    className='form-control'
+                    className='form-control form-control-lg'
                     placeholder='Search GitHub users...'
                     onChange={(e) => setQuery(e.target.value)}
                 />
 
                 {
                     loading && (
-                        <div className='alert alert-info'>
-                            Loading users
+                        <div className='alert alert-info mt-3'>
+                            <span className='spinner-border spinner-border-sm me-2' role='status'></span>
+                            Loading users...
                         </div>
                     )
                 }
