@@ -15,7 +15,7 @@ export default function Home() {
 
             try {
                 const res = await fetch(
-                    'https://api.github.com/search/users?q=${query}'
+                    `https://api.github.com/search/users?q=${query}`
                 );
                 const data = await res.json();
                 setUsers(data.items || []);
@@ -36,7 +36,7 @@ export default function Home() {
                 <input
                     className='form-control'
                     placeholder='Search GitHub users...'
-                    onClick={(e) => setQuery(e.target.value)}
+                    onChange={(e) => setQuery(e.target.value)}
                 />
 
                 {
@@ -57,7 +57,7 @@ export default function Home() {
                                 >
                                     <div className='card'>
                                         <img 
-                                            src={user.avatar_URL}
+                                            src={user.avatar_url}
                                             className='card-img-top'
                                             alt=''
                                         />
